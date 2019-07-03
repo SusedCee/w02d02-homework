@@ -89,17 +89,9 @@ console.log("Welcome to a Pokemon Game!");
 
 // THE CARDS
 
-// VARIABLES: What we need to keep track of.
-// let playersScore = 0; //keeps the players score array
-// let computersScore = 0; //keeps the computer score array
-// let gameOn = true; //
-// let playerChoice;
-// let computerChoice;
-// const history = [];
+// const game = {
 
-const game = {
-
- pokemonChoices: [
+const pokemonCards = [
   {
     name: "Bulbasaur",
     damage: 60
@@ -155,45 +147,50 @@ const game = {
     name: "Weedle", 
     damage: 40
   }
-],
+]//,
+// }
 
-  // the "state" of our app....
-  cardsPlayed: [], // "discard pile"
-  playerScore: 0,
-  computerScore: 0,
-  playerRoundWon: 0,
-  computerRoundWon: 0,
-  round: 1,
-
-  computer: null,
-  player: null,
+const player = {
+	playerCards: [],
+	usedCards: [],
+	score: 0,
+	roundsWon: 0
+}//,
 
 
-
-
-
-
- ////////////////////DEAL HANDS (3 THE PLAYER AND 3 THE COMPUTER) AND SAVE THE ONES USED IN REMOVECARD SO IT IS NOT USED AGAIN
-  removeCard(cardIndex){
-	const cardArray = this.pokemonChoices.splice(cardIndex,1)
-	return cardArray[0]
-},
+const computer = {
+	computerCards: [],
+	usedCards: [],
+	score: 0,
+	roundsWon: 0
+}//,
 
 
 
-  dealHands(){
-  	for (let i = 0; i < 3; i++) { // dealing 3 cards for each player 3 times
+ ////////////////////DEAL HANDS (3 THE PLAYER AND 3 THE COMPUTER) AND SAVE THE ONES USED IN "usedCards" SO IT IS NOT USED AGAIN
+
+const dealCard = () => {
+  	for (let i = 0; i < 3; i++) { // looping through deck three times
+  	const prandomNumber = Math.floor(Math.random() * pokemonCards.length);//random function to choose 3 cards
+  	player.playerCards.push(pokemonCards[prandomNumber]); //three cards chosen get put in the playerCards array
+  	pokemonCards.splice(prandomNumber,1); // get the three cards out of original array forever
   	
-  	const cardIndexPlayer = Math.floor(Math.random() * this.pokemonChoices.length);//this random function is for the player
-  	this.player.hand.push(this.removeCard(cardIndexPlayer));
-
-   	const cardIndexComputer = Math.floor(Math.random() * this.pokemonChoices.length);//this random function is for the computer
-  	this.player.hand.push(this.removeCard(cardIndexPlayer));
+    const crandomNumber = Math.floor(Math.random() * pokemonCards.length);//random function to choose 3 cards
+  	computer.computerCards.push(pokemonCards[crandomNumber]); //three cards chosen get put in the playerCards array
+  	pokemonCards.splice(crandomNumber,1); // get the three cards out of original array forever
+  	
+  	const chooseOneCard = 
   	}
-  }
+}
+
+
+//}
+
 
 
 ////////////////Play a round
+
+
 
 
 
@@ -217,10 +214,6 @@ const game = {
 
 
 ///////////////// Play Game
-
-
-
-}
 
 
 
