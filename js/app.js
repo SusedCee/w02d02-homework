@@ -1,5 +1,6 @@
 console.log("Welcome to a Pokemon Game!");
 
+
 //THE BASIC IDEA
 
 //You are going to create a simple card game
@@ -89,8 +90,6 @@ console.log("Welcome to a Pokemon Game!");
 
 // THE CARDS
 
-// const game = {
-
 const pokemonCards = [
   {
     name: "Bulbasaur",
@@ -147,30 +146,29 @@ const pokemonCards = [
     name: "Weedle", 
     damage: 40
   }
-]//,
-// }
+]
 
 const player = {
 	playerCards: [],
 	usedCards: [],
 	score: 0,
 	roundsWon: 0
-}//,
+}
 
+let pfirstCard;
 
 const computer = {
 	computerCards: [],
 	usedCards: [],
 	score: 0,
 	roundsWon: 0
-}//,
+}
 
+let cfirstCard;
+ ////////////////////DEAL HANDS (3 THE PLAYER AND 3 THE COMPUTER) AND SAVE THE ONES USED IN "playerCards" SO IT IS NOT USED AGAIN
 
-
- ////////////////////DEAL HANDS (3 THE PLAYER AND 3 THE COMPUTER) AND SAVE THE ONES USED IN "usedCards" SO IT IS NOT USED AGAIN
-
-const dealCard = () => {
-  	for (let i = 0; i < 3; i++) { // looping through deck three times
+function dealCard(){
+  	 // looping through deck three times
   	const prandomNumber = Math.floor(Math.random() * pokemonCards.length);//random function to choose 3 cards
   	player.playerCards.push(pokemonCards[prandomNumber]); //three cards chosen get put in the playerCards array
   	pokemonCards.splice(prandomNumber,1); // get the three cards out of original array forever
@@ -178,258 +176,83 @@ const dealCard = () => {
     const crandomNumber = Math.floor(Math.random() * pokemonCards.length);//random function to choose 3 cards
   	computer.computerCards.push(pokemonCards[crandomNumber]); //three cards chosen get put in the playerCards array
   	pokemonCards.splice(crandomNumber,1); // get the three cards out of original array forever
-  	
-  	const chooseOneCard = 
-  	}
 }
 
 
-//}
-
-
-
-////////////////Play a round
-
-
-
-
-
-
-
-
-////////////////// Combat
-
-
-
-
-
-
-/////////////////Update Score
-
-
-
-
-
-
-
-
-///////////////// Play Game
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//CHOOSING 3 RANDOM CARDS
-//Third Try
-// var cardsDrawn = [], 
-// 	counter = 0,
-// 	randomCards = 0; 
-
-
-// const threeChosenCards = () => { // the name where i can access the array to use at other functions
-// 	let randomCards = [] // array where the three random cards will go
-// 	for (let i = 0; i < pokemonChoices.length; i++){ //loop through the pokemonChoices array
-// 		if (pokemonChoices < 0){ //if pokemonChoices are true then do the next
-// 			[Math.floor(Math.random()*pokemonChoices.length)];
-// 		} randomCards.push(pokemonChoices.splice(randomCards,1)):
-// 			 // choose 3 random cards and slice them (take out of the original array to not use again) and put them in RandomCards
-// 	}
-// console.log(String(randomCards[counter]));
-// counter +=1;
-// 	 // } return randomCards 
-// }
-// while (counter < pokemonChoices);
-
-// console.log(threeChosenCards(), "<--- threeChosenCards");
-
-// playerChoices = threeChosenCards
-// computerChoices = threeChosenCards
-
-// computerCardChoice ()
-
-
-// // CONDITIONALS - WHO BEATS WHO
-// // need to test whether the game is still going or not
-// const checkWinner = () => {
-//     if (playerChoice.damage === computerChoice.damage){
-//         console.log("TIE GAME, no one gets a point");
-//     } else if (playerChoice.damage > playerChoice){
-//         playersScore +=1;
-//     } else (playerChoice < computersChoice){
-//         computersScore +=1;
-//     }
-// }
-//     console.log("The player chooses " + playerChoice + "and the computer chooses " + computerChoice);
-//     console.log("Player Score: " + playersScore + " vs Computer Score: " + computersScore)
-
-
-// playerChoice = '';
-
-// const playerChooses = () => {
-//     playerChoice = prompt("Choose between ${threeChosenCards");
-// }
-
-
-// const askPlayerIfTheyWantToContinue = () => {
-//     const response = prompt("Care to play again? y/n");
-//     if(response === "n"){
-//         gameOn = false;
-//     } 
-// }
-
-// while(gameOn === true){
-//     playerChooses();
-//     computerChooses();
-//     checkWinner();
-//     askPlayerIfTheyWantToContinue();
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // ISOLATING DAMAGE NUMBERS IN ONE ARRAY
-// At first tried to isolate the damage instead of choosing 3 random cards
-
-// const findingDamage = () => {
-// 	let damageIsolated = []
-// 	for(i = 0; i < pokemonChoices.length; i++){
-// 		if(pokemonChoices[i]["damage"] > 0){
-// 		damageIsolated.push(pokemonChoices[i]["damage"])
-// 		}
-// 	} return damageIsolated
-// }
-// console.log(findingDamage());
-
-
-// Second Try
-// const threeRandomCards = () => {
-//     const randomPokemon = pokemonChoices[Math.floor(Math.random()*pokemonChoices.length)];
-//     console.log(`Your three Pokemon are ${randomPokemon}`);
-//     randomCards = randomPokemon;
-// 	}
-
-// console.log(threeRandomCards(), "<--- threeRandomCards");
-
-
-
-//3 RANDOM CARDS -  from pokemonChoices array (random and take the three out of the list till we go through all the cards)
-
-// const randomCards = () => {
-//     const randomPokemon = pokemonChoices[Math.floor(Math.random()*pokemonChoices.length)];
-//     console.log(`Your three Pokemon are ${randomPokemon}`);
-//     randomCards = randomPokemon;
-// 	}
-
-// console.log(randomCards(), "<--- randomCards");
-
-
-
-
-// COMPUTER CHOICE -  from findingDamage array (random)
-// const computerChooses = () => {
-//     const fighterOneDamage = findingDamage[Math.floor(Math.random()*findingDamage.length)];
-//     console.log(`The computer has a damage of ${fighterOneDamage}`);
-//     computerChoice = fighterOneDamage;
-// 	}
-
-// console.log(computerChooses(), "<--- computerChooses");
-
-
-// PLAYER CHOICE - from findingDamage array (random)
-// const playerChooses = () => {
-//     const fighterTwoDamage = findingDamage[Math.floor(Math.random()*findingDamage.length)];
-//     console.log(`The player has a damage of ${fighterTwoDamage}`);
-//     playerChoice = fighterTwoDamage;
-// }
-// console.log(playerChooses(), "<--- playerChooses");
-
-
-
-// // // CONDITIONALS - WHO BEATS WHO
-// // // need to test whether the game is still going or not
-// const checkWinner = () => {
-//     if (computerChoice === playerChoice){
-//         console.log("TIE GAME, no one gets a point");
-//     } else if (computerChoice > playerChoice){
-//         computersScore +=1;
-//     } else (computerChoice < playerChoice){
-//         playersScore +=1;
-//     }
-// }
-//     console.log("The player chooses " + playerChoice + "and the computer chooses " + computerChoice);
-//     console.log("Player Score: " + playersScore + " vs Computer Score: " + computersScore)
-
+function showCard(){
+  for (let  i = 0; i < player.playerCards.length; i++){
+    console.log(`Player Card ${player.playerCards[i].name}`)
+    console.log(`Card has a damage of ${player.playerCards[i].damage}`)
+  }
+  for (let  i = 0; i < computer.computerCards.length; i++){
+    console.log(`Computer Card ${computer.computerCards[i].name}`)
+    console.log(`Computer has a damage of ${computer.computerCards[i].damage}`)
+  }
+}
+
+
+
+  
+// playRound()
+
+
+// // ///////////////Battle
+function battle(){
+	if(pfirstCard > cfirstCard){
+    //gameOverCheck
+    player.roundsWon += 1;
+    player.score += 1;
+    console.log(`You won this round. You have ${player.score} points and the computer has ${computer.score} points`);
+    console.log(`Rounds you have won are ${player.roundsWon} and rounds the computer has won are ${computer.roundsWon}`);
+	} else if(pfirstCard < cfirstCard){
+    computer.roundsWon += 1
+    computer.score += 1;
+		console.log(`The computer won this round. You have ${player.score} points and the computer has ${computer.score} points`);
+    console.log(`Rounds you have won are ${player.roundsWon} and rounds the computer has won are ${computer.roundsWon}`)
+    //gameOverCheck
+	} else {
+		console.log(`This round is a tie. You have ${player.score} points and the computer has ${computer.score} points`)
+	  console.log(`Rounds you have won are ${player.roundsWon} and rounds the computer has won are ${computer.roundsWon}`)
+    //gameOverCheck
+  }
+}
+battle()
+
+
+function gameWon(){
+
+  if(player.roundsWon > computer.roundsWon){
+    console.log(`You won the game!`);
+  } else if (player.roundsWon < computer.roundsWon){
+    console.log(`You lost against the computer!`);
+  } else {
+    console.log(`You tied against the computer!`)
+  }
+}
+
+
+function cardGame(){
+  pfirstCard = player.playerCards[0].damage;
+  cfirstCard = computer.computerCards[0].damage;
+  showCard()
+  console.log(pfirstCard, "<<player");
+  console.log(cfirstCard, "<<computer");
+  battle()
+  const usedP = player.playerCards.shift();
+  player.usedCards.push(usedP);
+  const usedC = computer.computerCards.shift();
+  computer.usedCards.push(usedC);
+  console.log(computer.usedCards);
+  dealCard()
+}
+// // /////////////////Game Over Check
+for(let i=0;i<3;i++){
+  dealCard();
+}  
+while(pokemonCards.length>0){
+  cardGame();
+  gameWon();
+}
 
 
 
